@@ -1,6 +1,10 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
 
+function emailIsValid (email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  }
+
 module.exports = function validateRegisterInput(data) {
     let errors = {};
 
@@ -17,13 +21,14 @@ module.exports = function validateRegisterInput(data) {
         errors.handle = "Handle field is required";
     }
 
-    if(Validator.isEmpty(data.email)) {
-        errors.email = "Email field is required";
+    if (Validator.isEmpty(data.email)) {
+        errors.email = 'Email field is required';
     }
 
-    if(!Validator.isEmail(data.email)) {
-        errors.email = "Please enter a valid email address"
+    if (!emailIsValid(data.email)) {
+        errors.email = 'Email is invalid';
     }
+
 
     if(Validator.isEmpty(data.password)) {
         errors.password ="A password is required"
