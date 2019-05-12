@@ -5,7 +5,6 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
       handle: '',
       password: '',
       password2: '',
@@ -20,7 +19,6 @@ class SignupForm extends React.Component {
     if (nextProps.signedIn === true) {
       this.props.history.push('/login');
     }
-
     this.setState({errors: nextProps.errors})
   }
 
@@ -33,12 +31,10 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = {
-      email: this.state.email,
       handle: this.state.handle,
       password: this.state.password,
       password2: this.state.password2
     };
-    debugger
 
     this.props.signup(user, this.props.history); 
   }
@@ -60,12 +56,6 @@ class SignupForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
-            <br/>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
             <br/>
               <input type="text"
                 value={this.state.handle}

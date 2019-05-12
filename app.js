@@ -15,18 +15,9 @@ mongoose
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use(bodyParser.json());
 
-
-
-app.get("/", (req, res) => {
-    const user = new User ({
-        handle: 'kevin',
-        email: 'kevin@kevin.com',
-        password: 'password12'
-    });
-    user.save();
-    res.send("Hello, ya bish")
-});
+app.get("/", (req, res) => res.send("Hello World!!"));
 
 const port = process.env.PORT || 5000;
 

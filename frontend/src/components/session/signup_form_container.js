@@ -12,7 +12,7 @@ const mstp = state => {
 const mdtp = dispatch => {
     return {
         signup: user => dispatch(signup(user))
-        // signup: () => console.log("Tried to sign up user!")
+        // signup: user => console.log("Tried to sign up user: ", user)
     };
 };
 

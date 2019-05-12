@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "playing around with node and express",
   "main": "app.js",
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:5000",
+      "secure": false
+    }
+  },
   "scripts": {
     "start": "node app.js",
     "server": "nodemon app.js",
