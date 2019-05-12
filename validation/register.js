@@ -3,7 +3,8 @@ const validText = require('./valid-text');
 
 function emailIsValid (email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-  }
+}
+
 
 module.exports = function validateRegisterInput(data) {
     let errors = {};
